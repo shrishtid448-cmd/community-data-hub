@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Community Data Hub</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#182230;
+}
+
+/* NAVBAR */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:white;
+  border-bottom:1px solid #ddd;
+  padding:15px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:bold;
+}
+
+nav a{
+  text-decoration:none;
+  color:#344054;
+  margin-left:18px;
+  font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+  padding:70px 7%;
+  background:#eaf3ff;
+  display:flex;
+  gap:40px;
+  align-items:center;
+}
+
+.hero-content{
+  flex:1;
+}
+
+.hero h1{
+  font-size:45px;
+  margin:10px 0;
+}
+
+.hero h1 span{
+  color:#2563eb;
+}
+
+.hero p{
+  font-size:18px;
+  line-height:1.6;
+}
+
+.hero-card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  width:320px;
+  text-align:center;
+  box-shadow:0 8px 30px #0001;
+}
+
+.hero-icon{
+  font-size:65px;
+}
+
+/* BUTTON */
+
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:10px;
+  border:1px solid #2563eb;
+  text-decoration:none;
+  color:#2563eb;
+  background:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.btn-primary{
+  background:#2563eb;
+  color:white;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  margin-top:25px;
+}
+
+/* SECTION */
+
+section{
+  padding:55px 7%;
+}
+
+h2{
+  font-size:30px;
+}
+
+.card{
+  background:white;
+  border:1px solid #e4e7ec;
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 6px 20px #0000000b;
+}
+
+/* FORM */
+
+.form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+label{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  font-weight:bold;
+}
+
+input,
+select,
+textarea{
+  padding:12px;
+  border:1px solid #d0d5dd;
+  border-radius:9px;
+  font:inherit;
+}
+
+textarea{
+  min-height:110px;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin:20px 0;
+}
+
+.stat{
+  background:white;
+  border:1px solid #e4e7ec;
+  border-radius:15px;
+  padding:20px;
+}
+
+.stat-number{
+  display:block;
+  font-size:30px;
+  font-weight:bold;
+  margin-top:8px;
+}
+
+/* GRID */
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+/* CHART */
+
+.bar{
+  margin:15px 0;
+}
+
+.bar-bg{
+  height:12px;
+  background:#e5e7eb;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.bar-fill{
+  height:100%;
+  background:#2563eb;
+}
+
+/* TABLE */
+
+.table-container{
+  overflow:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:13px;
+  border-bottom:1px solid #eee;
+  text-align:left;
+}
+
+.pill{
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.high{
+  background:#fee4e2;
+  color:#b42318;
+}
+
+.medium{
+  background:#fff4cc;
+  color:#8a5b00;
+}
+
+.low{
+  background:#dcfae6;
+  color:#067647;
+}
+
+/* AREA */
+
+.area-report{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.area-box{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  border:1px solid #e4e7ec;
+}
+
+/* MAP */
+
+.map{
+  height:300px;
+  background:linear-gradient(
+    135deg,
+    #dff3e3,
+    #dbeafe
+  );
+  border-radius:18px;
+  position:relative;
+  margin-top:20px;
+}
+
+.marker{
+  position:absolute;
+  background:white;
+  padding:10px 13px;
+  border-radius:20px;
+  box-shadow:0 5px 15px #0002;
+}
+
+.m1{left:10%;top:25%}
+.m2{left:35%;top:65%}
+.m3{left:65%;top:25%}
+.m4{left:75%;top:70%}
+.m5{left:50%;top:45%}
+
+/* MESSAGE */
+
+.success{
+  color:#067647;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+/* FOOTER */
+
+footer{
+  background:#182230;
+  color:white;
+  text-align:center;
+  padding:30px;
+}
+
+/* MOBILE */
+
+@media(max-width:750px){
+
+  header{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  nav{
+    text-align:center;
+  }
+
+  nav a{
+    margin:5px;
+    font-size:13px;
+  }
+
+  .hero{
+    flex-direction:column;
+  }
+
+  .hero h1{
+    font-size:35px;
+  }
+
+  .hero-card{
+    width:100%;
+  }
+
+  .form,
+  .grid,
+  .area-report{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="logo">
+🌍 Community Data Hub
+</div>
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#report">Report</a>
+
+<a href="#dashboard">Dashboard</a>
+
+<a href="#area">My Area</a>
+
+<a href="#insights">Insights</a>
+
+</nav>
+
+</header>
+
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="hero">
+
+<div class="hero-content">
+
+<p>
+<b>COMMUNITY-CENTRIC OPEN DATA PLATFORM</b>
+</p>
+
+<h1>
+
+Understand Your
+<span>Community.</span>
+
+</h1>
+
+<p>
+
+Explore local problems, report community
+issues, analyse data and discover
+data-driven insights.
+
+</p>
+
+<div class="actions">
+
+<a
+class="btn btn-primary"
+href="#area">
+
+Explore My Area
+
+</a>
+
+<a
+class="btn"
+href="#report">
+
+Report an Issue
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<div class="hero-icon">
+📊
+</div>
+
+<h3>
+Community Overview
+</h3>
+
+<p id="heroStats">
+Loading community data...
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= REPORT ================= -->
+
+<section id="report">
+
+<h2>
+📝 Report a Community Issue
+</h2>
+
+<p>
+Public users can report problems in their area.
+</p>
+
+
+<div class="card">
+
+<form
+id="reportForm"
+class="form"
+>
+
+
+<label>
+
+Area
+
+<select
+id="areaInput"
+required
+>
+
+<option value="">
+Select Area
+</option>
+
+<option>Chembur</option>
+<option>Kurla</option>
+<option>Ghatkopar</option>
+<option>Andheri</option>
+<option>Bandra</option>
+<option>Dadar</option>
+
+</select>
+
+</label>
+
+
+
+<label>
+
+Category
+
+<select
+id="categoryInput"
+required
+>
+
+<option value="">
+Select Category
+</option>
+
+<option>Waste</option>
+<option>Road</option>
+<option>Street Light</option>
+<option>Water</option>
+<option>Park</option>
+<option>Public Transport</option>
+
+</select>
+
+</label>
+
+
+
+<label>
+
+Urgency
+
+<select
+id="urgencyInput"
+>
+
+<option>
+Normal
+</option>
+
+<option>
+Urgent
+</option>
+
+</select>
+
+</label>
+
+
+
+<label>
+
+Description
+
+<textarea
+id="descriptionInput"
+placeholder="Describe the issue..."
+required
+></textarea>
+
+</label>
+
+
+
+<label>
+
+Upload Photo
+
+<input
+type="file"
+id="photoInput"
+accept="image/*"
+>
+
+</label>
+
+
+<div>
+
+<button
+class="btn btn-primary"
+type="submit"
+>
+
+Submit Report
+
+</button>
+
+</div>
+
+</form>
+
+
+<div
+id="message"
+class="success"
+></div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboard">
+
+<h2>
+📊 Community Dashboard
+</h2>
+
+
+<div
+class="stats"
+id="stats"
+>
+</div>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<h3>
+Issues by Category
+</h3>
+
+<div id="categoryChart">
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Issue Status
+</h3>
+
+<div id="statusChart">
+</div>
+
+</div>
+
+
+</div>
+
+
+<br>
+
+
+<div class="card">
+
+<h3>
+Recent Community Reports
+</h3>
+
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Area</th>
+<th>Category</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+
+<tbody
+id="reportTable"
+>
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= MY AREA ================= -->
+
+<section id="area">
+
+<h2>
+📍 What is happening in my area?
+</h2>
+
+
+<div class="card">
+
+<label>
+
+Select your area
+
+<select
+id="areaSelect"
+>
+
+<option>Chembur</option>
+<option>Kurla</option>
+<option>Ghatkopar</option>
+<option>Andheri</option>
+<option>Bandra</option>
+<option>Dadar</option>
+
+</select>
+
+</label>
+
+</div>
+
+
+<div
+id="areaReport"
+class="area-report"
+>
+</div>
+
+</section>
+
+
+
+<!-- ================= MAP ================= -->
+
+<section>
+
+<h2>
+🗺️ Community Issue Map
+</h2>
+
+
+<div class="card">
+
+<p>
+Current reported community areas
+</p>
+
+
+<div class="map">
+
+<div class="marker m1">
+📍 Chembur
+</div>
+
+<div class="marker m2">
+📍 Kurla
+</div>
+
+<div class="marker m3">
+📍 Ghatkopar
+</div>
+
+<div class="marker m4">
+📍 Andheri
+</div>
+
+<div class="marker m5">
+📍 Dadar
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= INSIGHTS ================= -->
+
+<section id="insights">
+
+<h2>
+🤖 Smart Insights & Prediction
+</h2>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<h3>
+📈 Community Trend
+</h3>
+
+<p id="trend">
+Loading...
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+🔮 Prediction
+</h3>
+
+<p id="prediction">
+Loading...
+</p>
+
+</div>
+
+</div>
+
+
+<br>
+
+
+<div class="card">
+
+<h3>
+💡 How the system works
+</h3>
+
+<p>
+
+<b>1.</b> Citizens report an issue.
+
+</p>
+
+<p>
+
+<b>2.</b> Data is stored in the system.
+
+</p>
+
+<p>
+
+<b>3.</b> Issues are categorised.
+
+</p>
+
+<p>
+
+<b>4.</b> Priority is calculated.
+
+</p>
+
+<p>
+
+<b>5.</b> Dashboard analyses the data.
+
+</p>
+
+<p>
+
+<b>6.</b> Community trends are identified.
+
+</p>
+
+<p>
+
+<b>7.</b> Future version can use Machine
+Learning for prediction.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<b>
+Community Data Hub
+</b>
+
+<br>
+
+Community-Centric Open Data Platform
+
+<br><br>
+
+College CEP Project
+
+</footer>
+
+
+
+<script>
+
+
+/* =====================================
+   SAMPLE DATA
+===================================== */
+
+let reports = [
+
+{
+id:1,
+area:"Chembur",
+category:"Waste",
+priority:"High",
+status:"In Progress",
+description:"Overflowing garbage collection point"
+},
+
+{
+id:2,
+area:"Chembur",
+category:"Road",
+priority:"Medium",
+status:"Resolved",
+description:"Damaged road"
+},
+
+{
+id:3,
+area:"Kurla",
+category:"Street Light",
+priority:"Low",
+status:"Submitted",
+description:"Street light not working"
+},
+
+{
+id:4,
+area:"Ghatkopar",
+category:"Water",
+priority:"High",
+status:"Under Review",
+description:"Water supply issue"
+},
+
+{
+id:5,
+area:"Andheri",
+category:"Waste",
+priority:"Medium",
+status:"Resolved",
+description:"Waste near public area"
+},
+
+{
+id:6,
+area:"Bandra",
+category:"Park",
+priority:"Low",
+status:"Resolved",
+description:"Park maintenance issue"
+},
+
+{
+id:7,
+area:"Dadar",
+category:"Public Transport",
+priority:"Medium",
+status:"Assigned",
+description:"Bus stop issue"
+},
+
+{
+id:8,
+area:"Kurla",
+category:"Waste",
+priority:"High",
+status:"Submitted",
+description:"Waste accumulation"
+}
+
+];
+
+
+
+/* =====================================
+   LOAD SAVED DATA
+===================================== */
+
+const saved =
+localStorage.getItem(
+"communityData"
+);
+
+if(saved){
+
+reports =
+JSON.parse(saved);
+
+}
+
+
+
+function saveData(){
+
+localStorage.setItem(
+"communityData",
+JSON.stringify(reports)
+);
+
+}
+
+
+
+/* =====================================
+   COUNT DATA
+===================================== */
+
+function countBy(key){
+
+let result={};
+
+reports.forEach(
+item=>{
+
+result[item[key]] =
+(result[item[key]] || 0)+1;
+
+});
+
+return result;
+
+}
+
+
+
+/* =====================================
+   PRIORITY
+===================================== */
+
+function calculatePriority(
+category,
+urgency
+){
+
+if(
+urgency==="Urgent" ||
+category==="Waste" ||
+category==="Water"
+){
+
+return "High";
+
+}
+
+if(
+category==="Road" ||
+category==="Public Transport"
+){
+
+return "Medium";
+
+}
+
+return "Low";
+
+}
+
+
+
+/* =====================================
+   RENDER EVERYTHING
+===================================== */
+
+function render(){
+
+renderStats();
+
+renderCharts();
+
+renderTable();
+
+renderArea();
+
+renderInsights();
+
+}
+
+
+
+/* =====================================
+   STATS
+===================================== */
+
+function renderStats(){
+
+let total =
+reports.length;
+
+let resolved =
+reports.filter(
+r=>r.status==="Resolved"
+).length;
+
+let pending =
+total-resolved;
+
+let high =
+reports.filter(
+r=>r.priority==="High"
+).length;
+
+
+document.getElementById(
+"stats"
+).innerHTML=
+
+`
+
+<div class="stat">
+
+Total Reports
+
+<span class="stat-number">
+${total}
+</span>
+
+</div>
+
+
+<div class="stat">
+
+Resolved
+
+<span class="stat-number">
+${resolved}
+</span>
+
+</div>
+
+
+<div class="stat">
+
+Pending
+
+<span class="stat-number">
+${pending}
+</span>
+
+</div>
+
+
+<div class="stat">
+
+High Priority
+
+<span class="stat-number">
+${high}
+</span>
+
+</div>
+
+`;
+
+
+document.getElementById(
+"heroStats"
+).innerText=
+
+`${total} reports • ${resolved} resolved • ${pending} pending`;
+
+}
+
+
+
+/* =====================================
+   CHARTS
+===================================== */
+
+function renderCharts(){
+
+let categories =
+countBy("category");
+
+let statuses =
+countBy("status");
+
+
+createChart(
+"categoryChart",
+categories
+);
+
+createChart(
+"statusChart",
+statuses
+);
+
+}
+
+
+
+function createChart(
+element,
+data
+){
+
+let max =
+Math.max(
+...Object.values(data),
+1
+);
+
+
+document.getElementById(
+element
+).innerHTML=
+
+Object.entries(data)
+
+.map(
+([name,value])=>
+
+`
+
+<div class="bar">
+
+<b>
+${name} — ${value}
+</b>
+
+<div class="bar-bg">
+
+<div
+class="bar-fill"
+style="width:${value/max*100}%"
+></div>
+
+</div>
+
+</div>
+
+`
+
+)
+
+.join("");
+
+}
+
+
+
+/* =====================================
+   TABLE
+===================================== */
+
+function renderTable(){
+
+document.getElementById(
+"reportTable"
+).innerHTML=
+
+reports
+.slice()
+.reverse()
+.map(
+
+r=>
+
+`
+
+<tr>
+
+<td>
+#${r.id}
+</td>
+
+<td>
+${r.area}
+</td>
+
+<td>
+${r.category}
+</td>
+
+<td>
+
+<span
+class="pill ${r.priority.toLowerCase()}"
+>
+
+${r.priority}
+
+</span>
+
+</td>
+
+<td>
+${r.status}
+</td>
+
+<td>
+
+<button
+class="btn"
+onclick="updateStatus(${r.id})"
+>
+
+Update
+
+</button>
+
+</td>
+
+</tr>
+
+`
+
+)
+
+.join("");
+
+}
+
+
+
+/* =====================================
+   STATUS UPDATE
+===================================== */
+
+function updateStatus(id){
+
+let report =
+reports.find(
+r=>r.id===id
+);
+
+
+let statuses=[
+
+"Submitted",
+
+"Under Review",
+
+"Assigned",
+
+"In Progress",
+
+"Resolved"
+
+];
+
+
+let current =
+statuses.indexOf(
+report.status
+);
+
+
+if(current<
+statuses.length-1){
+
+report.status =
+statuses[current+1];
+
+}
+
+
+saveData();
+
+render();
+
+}
+
+
+
+/* =====================================
+   AREA REPORT
+===================================== */
+
+function renderArea(){
+
+let area =
+document.getElementById(
+"areaSelect"
+).value;
+
+
+let areaReports =
+reports.filter(
+r=>r.area===area
+);
+
+
+let categories =
+countArea(
+areaReports
+);
+
+
+let top =
+Object.entries(categories)
+.sort(
+(a,b)=>b[1]-a[1]
+)[0];
+
+
+let resolved =
+areaReports.filter(
+r=>r.status==="Resolved"
+).length;
+
+
+let percentage =
+areaReports.length
+?
+Math.round(
+resolved /
+areaReports.length *
+100
+)
+:0;
+
+
+document.getElementById(
+"areaReport"
+).innerHTML=
+
+`
+
+<div class="area-box">
+
+<h3>
+Total Reports
+</h3>
+
+<h2>
+${areaReports.length}
+</h2>
+
+</div>
+
+
+<div class="area-box">
+
+<h3>
+Major Issue
+</h3>
+
+<h2>
+${top ? top[0] : "No data"}
+</h2>
+
+<p>
+
+${
+top
+?
+top[1]+" reports"
+:
+"More data required"
+}
+
+</p>
+
+</div>
+
+
+<div class="area-box">
+
+<h3>
+Resolution Rate
+</h3>
+
+<h2>
+${percentage}%
+</h2>
+
+</div>
+
+
+<div class="area-box">
+
+<h3>
+Community Insight
+</h3>
+
+<p>
+
+${
+top
+?
+`${top[0]} is currently the most reported category in ${area}.`
+:
+`No reports available for ${area}.`
+}
+
+</p>
+
+</div>
+
+
+<div class="area-box">
+
+<h3>
+Suggested Focus
+</h3>
+
+<p>
+
+${
+top
+?
+`Monitor ${top[0]} related issues and encourage timely resolution.`
+:
+`Collect more community data.`
+}
+
+</p>
+
+</div>
+
+
+<div class="area-box">
+
+<h3>
+Data Status
+</h3>
+
+<p>
+
+This report is generated
+from the current community dataset.
+
+</p>
+
+</div>
+
+`;
+
+}
+
+
+
+function countArea(
+areaReports
+){
+
+let result={};
+
+
+areaReports.forEach(
+r=>{
+
+result[r.category]=
+(result[r.category]||0)+1;
+
+});
+
+
+return result;
+
+}
+
+
+
+/* =====================================
+   INSIGHTS
+===================================== */
+
+function renderInsights(){
+
+let total =
+reports.length;
+
+
+let waste =
+reports.filter(
+r=>r.category==="Waste"
+).length;
+
+
+let percentage =
+total
+?
+Math.round(
+waste/total*100
+)
+:0;
+
+
+document.getElementById(
+"trend"
+).innerText=
+
+`Waste represents ${percentage}% of current community reports. As more monthly data is collected, the system can compare trends over time.`;
+
+
+
+let categories =
+countBy("category");
+
+
+let sorted =
+Object.entries(categories)
+.sort(
+(a,b)=>b[1]-a[1]
+);
+
+
+if(sorted.length){
+
+document.getElementById(
+"prediction"
+).innerText=
+
+`Prototype prediction: ${sorted[0][0]} is currently the most frequently reported issue and should be monitored closely. In the final Data Science version, this section can use a trained Machine Learning model for actual future prediction.`;
+
+}
+
+}
+
+
+
+/* =====================================
+   SUBMIT FORM
+===================================== */
+
+document.getElementById(
+"reportForm"
+)
+.addEventListener(
+"submit",
+function(e){
+
+e.preventDefault();
+
+
+let area =
+document.getElementById(
+"areaInput"
+).value;
+
+
+let category =
+document.getElementById(
+"categoryInput"
+).value;
+
+
+let urgency =
+document.getElementById(
+"urgencyInput"
+).value;
+
+
+let description =
+document.getElementById(
+"descriptionInput"
+).value;
+
+
+let priority =
+calculatePriority(
+category,
+urgency
+);
+
+
+let newReport={
+
+id:
+Date.now(),
+
+area:
+area,
+
+category:
+category,
+
+priority:
+priority,
+
+status:
+"Submitted",
+
+description:
+description
+
+};
+
+
+reports.push(
+newReport
+);
+
+
+saveData();
+
+render();
+
+
+document.getElementById(
+"reportForm"
+).reset();
+
+
+document.getElementById(
+"message"
+).innerText=
+"✅ Your community issue has been submitted successfully!";
+
+
+setTimeout(
+function(){
+
+document.getElementById(
+"message"
+).innerText="";
+
+},
+3000
+);
+
+
+window.location.hash=
+"dashboard";
+
+});
+
+
+
+/* =====================================
+   AREA CHANGE
+===================================== */
+
+document.getElementById(
+"areaSelect"
+)
+.addEventListener(
+"change",
+renderArea
+);
+
+
+
+/* =====================================
+   START WEBSITE
+===================================== */
+
+render();
+
+
+</script>
+
+</body>
+
+</html>
